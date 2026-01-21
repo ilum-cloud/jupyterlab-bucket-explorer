@@ -1,0 +1,1073 @@
+.jp-s3-icon {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+[data-jp-theme-light='true'] .jp-s3-icon {
+  background-image: url('./bucket-explorer-logo.svg');
+}
+
+[data-jp-theme-light='false'] .jp-s3-icon {
+  background-image: url('./bucket-explorer-logo.svg');
+}
+
+[data-jp-theme-light='true']
+  #s3-filebrowser
+  .jp-FileBrowser-crumbs
+  .jp-BreadCrumbs-item:first-child {
+  background-image: url('./bucket-explorer-logo.svg');
+}
+
+[data-jp-theme-light='false']
+  #s3-filebrowser
+  .jp-FileBrowser-crumbs
+  .jp-BreadCrumbs-item:first-child {
+  background-image: url('./bucket-explorer-logo.svg');
+}
+
+.s3-error {
+  padding: 30px;
+  border: 3px solid red;
+  font-size: 1.3em;
+}
+
+/* New Login UI Styles */
+.s3-container {
+  background: white;
+  padding: 40px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center horizontally */
+  color: black;
+  font-family: sans-serif;
+}
+
+.s3-header {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.s3-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.s3-description {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Main form container */
+.s3-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 4px;
+  margin-top: 10px;
+}
+
+/* Individual Field Container */
+.s3-field {
+  position: relative;
+  border: 1px solid var(--jp-border-color2);
+  border-radius: 4px;
+  padding: 0 10px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin-top: 6px;
+  /* Spacing for the floating label */
+}
+
+.s3-field:focus-within {
+  border-color: var(--jp-brand-color1, #2196f3);
+  box-shadow: 0 0 0 1px var(--jp-brand-color1, #2196f3);
+}
+
+/* Floating Label on the Border */
+.s3-field label {
+  position: absolute;
+  top: -9px;
+  left: 8px;
+  background-color: var(--jp-layout-color1);
+  padding: 0 4px;
+  font-size: 11px;
+  color: var(--jp-ui-font-color2);
+  font-weight: 500;
+  pointer-events: none;
+  line-height: 1;
+  z-index: 2;
+}
+
+.s3-field input {
+  border: none !important;
+  outline: none !important;
+  background: transparent;
+  width: 100%;
+  font-size: 13px;
+  color: var(--jp-ui-font-color0);
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+/* Override browser autofill blue background */
+.s3-field input:-webkit-autofill,
+.s3-field input:-webkit-autofill:hover,
+.s3-field input:-webkit-autofill:focus,
+.s3-field input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--jp-layout-color1) inset !important;
+  -webkit-text-fill-color: var(--jp-ui-font-color0) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.s3-connect-btn {
+  margin-top: 10px;
+  /* Reduced top margin */
+  width: 100%;
+  height: 36px;
+  /* Compact button height */
+  border-radius: 4px;
+  /* Matches field radius */
+  background: var(--jp-brand-color1, #1976d2);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.s3-connect-btn:hover {
+  background-color: var(--jp-brand-color0, #1565c0);
+}
+
+.s3-connect-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+/* User Guide */
+.s3-guide {
+  margin-top: 24px;
+  font-size: 12px;
+  color: #888;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.jp-S3Browser {
+  background-color: var(--jp-layout-color1);
+  height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.jp-S3Browser .jp-FileBrowser {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: auto !important;
+}
+
+/* Footer in S3Browser should stay at bottom */
+.jp-S3Browser > .lm-Widget:last-child .jp-Explorer-footer,
+.jp-S3Browser .jp-Explorer-footer {
+  flex-shrink: 0 !important;
+}
+
+.jp-S3Browser .jp-ToolbarButton.jp-Toolbar-item.jp-S3-toolbar-item {
+  display: block;
+}
+
+#s3-filebrowser.loading > div > ul > li {
+  display: none;
+}
+
+/* Left alignment for clean layout */
+.jp-S3Browser .jp-DirListing-item {
+  padding-left: 12px !important;
+}
+
+.jp-S3Browser .jp-DirListing-header {
+  padding-left: 0 !important;
+}
+
+/* Toolbar separator */
+.jp-S3-toolbar-separator {
+  width: 1px !important;
+  height: 18px !important;
+  background-color: var(--jp-border-color2) !important;
+  margin: 0 12px !important;
+  align-self: center !important;
+  flex-shrink: 0 !important;
+  border: none !important;
+}
+
+/* Connection Badge */
+.jp-S3-connectionBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--jp-layout-color2);
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--jp-border-color2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  max-width: 120px;
+}
+
+.jp-S3-connectionBadge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e4481;
+}
+
+.jp-S3-connectionBadge-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.jp-S3-connectionBadge-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--jp-ui-font-color0);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Back Button in Toolbar */
+.jp-S3-backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: var(--jp-ui-font-color2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.jp-S3-backBtn:hover {
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-S3-backBtn:active {
+  transform: scale(0.95);
+}
+
+/* Hide resize handle */
+.jp-S3Browser .jp-DirListing-resizeHandle {
+  display: none !important;
+}
+
+/* Header border styling */
+.jp-S3Browser .jp-Toolbar {
+  min-height: var(--jp-private-toolbar-height) !important;
+  height: var(--jp-private-toolbar-height) !important;
+  background: var(--jp-layout-color1) !important;
+  border-bottom: 1px solid var(--jp-border-color2) !important;
+  padding: 0 !important;
+  gap: 2px !important;
+  flex-wrap: wrap !important;
+  overflow: visible !important;
+}
+
+/* ========================================
+   JP-TOOLBAR (Shadow DOM) OVERRIDES
+   SCOPED TO .jp-S3Browser ONLY!
+   ======================================== */
+
+/* Remove side margins from jp-toolbar - S3 Browser ONLY */
+.jp-S3Browser jp-toolbar.jp-Toolbar,
+.jp-S3Browser .jp-FileBrowser-toolbar {
+  margin: 8px 0 0 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Target Shadow DOM positioning-region via ::part - S3 Browser ONLY */
+.jp-S3Browser jp-toolbar.jp-Toolbar::part(positioning-region),
+.jp-S3Browser .jp-FileBrowser-toolbar::part(positioning-region) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Toolbar items vertical centering - S3 Browser ONLY */
+.jp-S3Browser .jp-Toolbar-item {
+  display: flex !important;
+  align-items: center !important;
+  height: var(--jp-private-toolbar-height) !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+/* jp-button inside toolbar - S3 Browser ONLY */
+.jp-S3Browser jp-toolbar jp-button::part(control) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: var(--jp-private-toolbar-height) !important;
+  padding: 0 4px !important;
+}
+
+/* Back button vertical centering - Force push to right */
+.jp-S3Browser .jp-S3-backBtn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: var(--jp-private-toolbar-height) !important;
+  margin-left: auto !important;
+}
+
+/* Connection badge vertical centering */
+.jp-S3Browser .jp-S3-connectionBadge {
+  display: flex !important;
+  align-items: center !important;
+  height: calc(var(--jp-private-toolbar-height) - 8px) !important;
+}
+
+/* Toolbar buttons - S3 Browser ONLY - normal icon size, subtle padding */
+.jp-S3Browser .jp-Toolbar .jp-ToolbarButtonComponent {
+  min-width: 22px !important;
+  min-height: 22px !important;
+  width: 22px !important;
+  height: 22px !important;
+  padding: 0 !important;
+  margin: 0 2px 0 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.jp-S3Browser .jp-Toolbar .jp-ToolbarButtonComponent svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Toolbar layout - stick to right */
+.jp-S3Browser .jp-Toolbar {
+  justify-content: flex-end !important;
+}
+
+/* Remove blue selection/focus highlight on toolbar buttons */
+.jp-S3Browser .jp-Toolbar .jp-ToolbarButtonComponent:focus,
+.jp-S3Browser .jp-Toolbar .jp-ToolbarButtonComponent:focus-visible,
+.jp-S3Browser .jp-Toolbar .jp-ToolbarButtonComponent:active,
+.jp-S3Browser .jp-Toolbar button:focus,
+.jp-S3Browser .jp-Toolbar button:focus-visible,
+.jp-S3Browser .jp-Toolbar jp-button:focus,
+.jp-S3Browser .jp-Toolbar jp-button:focus-visible,
+.jp-S3Browser .jp-Toolbar jp-button:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Target jp-button shadow DOM parts for focus removal */
+.jp-S3Browser .jp-Toolbar jp-button::part(control):focus,
+.jp-S3Browser .jp-Toolbar jp-button::part(control):focus-visible,
+.jp-S3Browser .jp-Toolbar jp-button::part(control):focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ================================
+   EXPLORER UI - New Design System
+   ================================ */
+
+/* Main Explorer Container */
+.jp-Explorer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--jp-layout-color1);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Explorer Header */
+.jp-Explorer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--jp-border-color2);
+  background: var(--jp-layout-color1);
+}
+
+.jp-Explorer-title {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--jp-ui-font-color0);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.jp-Explorer-addBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--jp-brand-color1);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.jp-Explorer-addBtn:hover {
+  background: var(--jp-brand-color3);
+  border-color: var(--jp-brand-color2);
+}
+
+.jp-Explorer-refreshBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--jp-ui-font-color2);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 8px;
+  /* Space between refresh and ADD button */
+}
+
+.jp-Explorer-refreshBtn:hover {
+  background: var(--jp-layout-color2);
+  color: var(--jp-brand-color1);
+}
+
+.jp-Explorer-refreshBtn.spinning svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.jp-Explorer-addBtn svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 3;
+}
+
+/* Connection List */
+.jp-Explorer-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Category Header */
+.jp-Explorer-categoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--jp-layout-color2);
+  border-bottom: 1px solid var(--jp-border-color2);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.jp-Explorer-categoryHeader:hover {
+  background: var(--jp-layout-color3);
+}
+
+.jp-Explorer-categoryInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.jp-Explorer-categoryIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--jp-layout-color1);
+  border-radius: 8px;
+  border: 1px solid var(--jp-border-color2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.jp-Explorer-categoryIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.jp-Explorer-categoryLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--jp-ui-font-color1);
+  letter-spacing: -0.01em;
+}
+
+.jp-Explorer-categoryMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jp-Explorer-categoryCount {
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--jp-ui-font-color3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.jp-Explorer-categoryChevron {
+  color: var(--jp-ui-font-color3);
+  transition: transform 0.2s;
+}
+
+.jp-Explorer-categoryHeader.collapsed .jp-Explorer-categoryChevron {
+  transform: rotate(-90deg);
+}
+
+/* Connection Item */
+.jp-Explorer-connectionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px;
+  border-bottom: 1px solid var(--jp-border-color3);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.jp-Explorer-connectionItem:hover {
+  background: var(--jp-layout-color2);
+}
+
+.jp-Explorer-connectionItem:last-child {
+  border-bottom: none;
+}
+
+.jp-Explorer-connectionInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Status Dot */
+.jp-Explorer-statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.jp-Explorer-statusDot.active,
+.jp-Explorer-statusDot.success {
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.jp-Explorer-statusDot.warning {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.jp-Explorer-statusDot.error {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+.jp-Explorer-statusDot.neutral {
+  background: #cbd5e1;
+  box-shadow: 0 0 4px rgba(203, 213, 225, 0.4);
+}
+
+.jp-Explorer-connectionName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--jp-ui-font-color1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.15s;
+}
+
+.jp-Explorer-connectionItem:hover .jp-Explorer-connectionName {
+  color: var(--jp-brand-color1);
+}
+
+/* Connection Actions */
+.jp-Explorer-connectionActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.jp-Explorer-connectionItem:hover .jp-Explorer-connectionActions {
+  opacity: 1;
+}
+
+.jp-Explorer-actionBtn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--jp-ui-font-color2);
+  transition: color 0.15s;
+}
+
+.jp-Explorer-actionBtn:hover {
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-Explorer-actionBtn.delete:hover {
+  color: #ef4444;
+}
+
+.jp-Explorer-actionBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Empty State */
+.jp-Explorer-empty {
+  padding: 48px;
+  text-align: center;
+}
+
+.jp-Explorer-emptyText {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--jp-ui-font-color3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Explorer Footer */
+.jp-Explorer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 32px;
+  border-top: 1px solid var(--jp-border-color2);
+  background: var(--jp-layout-color1);
+  margin-top: auto;
+}
+
+.jp-Explorer-footerText {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--jp-ui-font-color3);
+  text-transform: lowercase;
+  letter-spacing: 0.15em;
+}
+
+.jp-Explorer-footerLink {
+  color: var(--jp-ui-font-color3);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.jp-Explorer-footerLink:hover {
+  color: var(--jp-brand-color1);
+  text-decoration: underline;
+}
+
+/* ================================
+   NEW CONNECTION FORM - Redesigned
+   ================================ */
+
+/* Auth Widget Wrapper */
+.jp-Explorer-authWidget {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: 100% !important;
+}
+
+.jp-Explorer-formContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--jp-layout-color1);
+  overflow: hidden;
+  /* Prevent scrolling on container */
+}
+
+.jp-Explorer-formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--jp-border-color2);
+}
+
+.jp-Explorer-formTitle {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--jp-ui-font-color0);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.jp-Explorer-backBtn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--jp-ui-font-color3);
+  transition: color 0.15s;
+}
+
+.jp-Explorer-backBtn:hover {
+  color: var(--jp-ui-font-color0);
+}
+
+.jp-Explorer-backBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Form Content */
+.jp-Explorer-formContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 24px;
+}
+
+/* Underline Input Field */
+.jp-Explorer-field {
+  margin-bottom: 24px;
+}
+
+.jp-Explorer-fieldLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--jp-ui-font-color3);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.jp-Explorer-field:focus-within .jp-Explorer-fieldLabel {
+  color: var(--jp-brand-color1);
+}
+
+.jp-Explorer-fieldInput {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--jp-border-color2);
+  background: transparent;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--jp-ui-font-color0);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.jp-Explorer-fieldInput::placeholder {
+  color: var(--jp-ui-font-color3);
+  font-weight: 400;
+}
+
+.jp-Explorer-fieldInput:focus {
+  border-color: var(--jp-brand-color1);
+}
+
+/* Submit Button */
+.jp-Explorer-submitBtn {
+  width: 100%;
+  background: var(--jp-brand-color1);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 16px;
+}
+
+.jp-Explorer-submitBtn:hover {
+  background: var(--jp-brand-color0);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.jp-Explorer-submitBtn:active {
+  transform: scale(0.98);
+}
+
+/* Form Hints */
+.jp-Explorer-formHints {
+  margin-top: 32px;
+  opacity: 0.6;
+}
+
+.jp-Explorer-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.jp-Explorer-hintDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--jp-ui-font-color2);
+}
+
+.jp-Explorer-hintText {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--jp-ui-font-color2);
+}
+
+/* Provider Icons */
+.jp-Explorer-s3Icon {
+  fill: #ff9900;
+}
+
+.jp-Explorer-gcsIcon {
+  fill: #4285f4;
+}
+
+/* ================================
+   STORAGE TYPE SELECTOR
+   ================================ */
+
+.jp-Explorer-typeSelector {
+  margin-bottom: 32px;
+}
+
+.jp-Explorer-typeSelectorContainer {
+  position: relative;
+  display: flex;
+  background: var(--jp-layout-color2);
+  padding: 4px;
+  border-radius: 12px;
+  align-items: center;
+  height: 52px;
+}
+
+/* Animated sliding highlight */
+.jp-Explorer-typeHighlight {
+  position: absolute;
+  height: calc(100% - 8px);
+  background: #1e4481;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+  z-index: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  left: calc(0% + 4px);
+  width: calc(25% - 8px);
+}
+
+.jp-Explorer-typeBtn {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  z-index: 10;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.jp-Explorer-typeBtn svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  color: var(--jp-ui-font-color2);
+  transition: color 0.2s;
+}
+
+.jp-Explorer-typeBtn.active svg {
+  stroke-width: 2.5;
+  color: white;
+}
+
+.jp-Explorer-typeBtn span {
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--jp-ui-font-color2);
+  transition: color 0.2s;
+}
+
+.jp-Explorer-typeBtn.active span {
+  color: white;
+}
+
+.jp-Explorer-typeBtn:hover:not(.active) svg,
+.jp-Explorer-typeBtn:hover:not(.active) span {
+  color: var(--jp-ui-font-color0);
+}
+
+/* ================================
+   TEST CONNECTION BUTTON
+   ================================ */
+
+.jp-Explorer-testContainer {
+  margin-bottom: 16px;
+}
+
+.jp-Explorer-testBtn {
+  width: 100%;
+  background: transparent;
+  color: var(--jp-ui-font-color1);
+  border: 2px solid var(--jp-border-color2);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.jp-Explorer-testBtn:hover {
+  border-color: var(--jp-brand-color1);
+  color: var(--jp-brand-color1);
+  background: var(--jp-brand-color3);
+}
+
+.jp-Explorer-testBtn:active {
+  transform: scale(0.98);
+}
+
+/* Test button states */
+.jp-Explorer-testBtn.testing {
+  border-color: var(--jp-warn-color1);
+  color: var(--jp-warn-color1);
+  cursor: wait;
+}
+
+.jp-Explorer-testBtn.success {
+  border-color: var(--jp-success-color1);
+  color: var(--jp-success-color1);
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.jp-Explorer-testBtn.error {
+  border-color: var(--jp-error-color1);
+  color: var(--jp-error-color1);
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.jp-Explorer-testBtn:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+/* Remove autofill blue highlight from form inputs */
+.jp-Explorer-fieldInput:-webkit-autofill,
+.jp-Explorer-fieldInput:-webkit-autofill:hover,
+.jp-Explorer-fieldInput:-webkit-autofill:focus,
+.jp-Explorer-fieldInput:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--jp-layout-color1) inset !important;
+  -webkit-text-fill-color: var(--jp-ui-font-color1) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.jp-Explorer-fieldInput:focus {
+  outline: none;
+  border-color: var(--jp-brand-color1);
+}
+
+.jp-Explorer-testResult.loading {
+  display: block;
+  background: var(--jp-layout-color2);
+  color: var(--jp-ui-font-color2);
+  border: 1px solid var(--jp-border-color2);
+}
+
+.jp-Explorer-testResult.success {
+  display: block;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+.jp-Explorer-testResult.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

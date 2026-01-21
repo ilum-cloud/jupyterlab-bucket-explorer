@@ -1,0 +1,100 @@
+{
+  "title": "Bucket Explorer",
+  "description": "Configuration for the S3 Bucket Explorer.",
+  "type": "object",
+  "properties": {
+    "connections": {
+      "type": "array",
+      "title": "Storage Connections",
+      "description": "List of configured storage connections.",
+      "items": {
+        "type": "object",
+        "title": "Connection",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "ID"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "providerType": {
+            "type": "string",
+            "title": "Provider Type",
+            "enum": ["s3"],
+            "default": "s3"
+          },
+          "url": {
+            "type": "string",
+            "title": "Endpoint URL"
+          },
+          "accessKey": {
+            "type": "string",
+            "title": "Access Key"
+          },
+          "secretKey": {
+            "type": "string",
+            "title": "Secret Key",
+            "format": "password"
+          },
+          "region": {
+            "type": "string",
+            "title": "Region"
+          },
+          "isDefault": {
+            "type": "boolean",
+            "title": "Is Default"
+          }
+        },
+        "required": ["name", "accessKey", "secretKey"]
+      },
+      "default": []
+    },
+    "refreshIntervalMs": {
+      "type": "number",
+      "title": "Refresh Interval (ms)",
+      "description": "Interval in milliseconds to auto-refresh the file list.",
+      "default": 300000,
+      "minimum": 1000
+    },
+    "defaultRegion": {
+      "type": "string",
+      "title": "Default Region",
+      "description": "Default AWS region to use when creating new connections.",
+      "default": "us-east-1"
+    },
+    "showFileCheckboxes": {
+      "type": "boolean",
+      "title": "Show File Checkboxes",
+      "description": "Show checkboxes in the file browser.",
+      "default": false
+    },
+    "pathPrefix": {
+      "type": "string",
+      "title": "Copy Path Prefix",
+      "description": "Protocol prefix for copying S3 URIs (e.g., s3://, s3a://).",
+      "default": "s3a://",
+      "enum": ["s3://", "s3a://", "s3n://"]
+    },
+    "showHiddenFiles": {
+      "type": "boolean",
+      "title": "Show Hidden Files",
+      "description": "Show files starting with a dot (e.g. .git, .keep).",
+      "default": false
+    },
+    "maxListingItems": {
+      "type": "number",
+      "title": "Max Listing Items",
+      "description": "Limit the number of items fetched in a directory listing.",
+      "default": 1000
+    },
+    "requestTimeoutMs": {
+      "type": "number",
+      "title": "Request Timeout (ms)",
+      "description": "Timeout for client-side S3 operations.",
+      "default": 30000
+    }
+  },
+  "additionalProperties": false
+}

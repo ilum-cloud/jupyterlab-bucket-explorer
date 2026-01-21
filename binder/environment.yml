@@ -1,0 +1,21 @@
+# a mybinder.org-ready environment for demoing jupyterlab-bucket-explorer
+# this environment may also be used locally on Linux/MacOS/Windows, e.g.
+#
+#   conda env update --file binder/environment.yml
+#   conda activate jupyterlab-bucket-explorer-demo
+#
+name: jupyterlab-bucket-explorer-demo
+
+channels:
+  - conda-forge
+
+dependencies:
+  # runtime dependencies
+  - python >=3.10,<3.11.0a0
+  - nodejs >=18,<19
+  # labextension build dependencies
+  - jupyterlab==3.6.6
+  - pip
+  - wheel
+  # additional packages for demos
+  - jupyter_packaging~=0.10

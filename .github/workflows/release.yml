@@ -1,0 +1,59 @@
+name: "Release"
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish to PyPI?"
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  build-release:
+    name: Build Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+          npm install -g yarn
+          yarn install
+
+      - name: Build the extension
+        run: |
+          python -m build
+
+      - name: Check metadata
+        run: |
+          python -m twine check dist/*
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: jupyterlab-bucket-explorer-release
+          path: dist/
+          retention-days: 30
+
+      - name: Publish to PyPI
+        if: ${{ inputs.publish || startsWith(github.ref, 'refs/tags/') }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}

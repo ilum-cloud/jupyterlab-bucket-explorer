@@ -1,0 +1,117 @@
+[build-system]
+requires = [
+    "hatchling>=1.18.0",
+    "hatch-jupyter-builder>=0.9.0",
+    "jupyterlab>=4.0.0,<5"
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupyterlab-bucket-explorer"
+version = "0.1.0"
+description = "Universal object storage browser for JupyterLab (S3, GCS, Azure, HDFS) by ilum"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Ilum Labs LLC", email = "support@ilum.cloud" }
+]
+keywords = [
+    "Jupyter",
+    "JupyterLab",
+    "JupyterLab4",
+    "jupyterlab-extension",
+    "S3",
+    "MinIO",
+    "AWS",
+    "Cloud Storage",
+    "File Browser",
+    "Bucket Explorer",
+    "Object Storage",
+    "Multi Cloud",
+    "Google Cloud Storage",
+    "GCS",
+    "Azure Blob Storage",
+    "Azure",
+    "HDFS",
+    "Hadoop"
+]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: Jupyter",
+    "Framework :: Jupyter :: JupyterLab",
+    "Framework :: Jupyter :: JupyterLab :: 4",
+    "Framework :: Jupyter :: JupyterLab :: Extensions",
+    "Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt"
+]
+requires-python = ">=3.8"
+dependencies = [
+    "boto3",
+    "singleton-decorator",
+    "colorlog",
+    "jupyter_server>=2.0.0",
+    "jupyterlab>=4.0.0,<5",
+    "s3fs>=2021.10.1"
+]
+
+[project.optional-dependencies]
+test = [
+    "coverage",
+    "moto[s3]",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "pytest-jupyter",
+    "pytest-tornasync",
+    "ruff"
+]
+dev = [
+    "jupyterlab-bucket-explorer[test]"
+]
+
+[project.urls]
+Homepage = "https://github.com/ilum-cloud/jupyterlab-bucket-explorer"
+Repository = "https://github.com/ilum-cloud/jupyterlab-bucket-explorer.git"
+Issues = "https://github.com/ilum-cloud/jupyterlab-bucket-explorer/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["jupyterlab_bucket_explorer"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"jupyterlab_bucket_explorer/labextension" = "share/jupyter/labextensions/jupyterlab-bucket-explorer"
+"install.json" = "share/jupyter/labextensions/jupyterlab-bucket-explorer/install.json"
+"jupyter-config/server-config/jupyterlab-bucket-explorer.json" = "etc/jupyter/jupyter_server_config.d/jupyterlab-bucket-explorer.json"
+"jupyter-config/nb-config/jupyterlab-bucket-explorer.json" = "etc/jupyter/jupyter_notebook_config.d/jupyterlab-bucket-explorer.json"
+
+[tool.hatch.build.hooks.jupyter-builder]
+build-function = "hatch_jupyter_builder.npm_builder"
+dependencies = ["hatch-jupyter-builder>=0.9.0"]
+ensured-targets = ["jupyterlab_bucket_explorer/labextension/package.json"]
+
+[tool.hatch.build.hooks.jupyter-builder.build-kwargs]
+build_cmd = "build:prod"
+npm = "jlpm"
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "UP",   # pyupgrade
+]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["jupyterlab_bucket_explorer"]

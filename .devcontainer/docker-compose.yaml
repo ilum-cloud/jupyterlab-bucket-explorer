@@ -1,0 +1,23 @@
+version: "3.7"
+
+# MinIO service for local S3 development and testing
+services:
+  minio:
+    image: quay.io/minio/minio:RELEASE.2025-01-08T05-59-58Z
+    command: server --console-address ":9001" /data
+    ports:
+      - "9000:9000" # S3 API
+      - "9001:9001" # Console UI
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - minio-data:/data
+
+volumes:
+  minio-data:
