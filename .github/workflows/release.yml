@@ -37,7 +37,8 @@ jobs:
 
       - name: Build the extension
         run: |
-          python -m build
+          python -m build --wheel
+          python -m build --sdist
 
       - name: Check metadata
         run: |
