@@ -75,8 +75,8 @@ After installation, restart JupyterLab. The extension should be automatically en
 ### From source (development)
 
 ```bash
-git clone https://github.com/ilum-cloud/jupyter-bucket-explorer.git
-cd jupyter-bucket-explorer
+git clone https://github.com/ilum-cloud/jupyterlab-bucket-explorer.git
+cd jupyterlab-bucket-explorer
 pip install -e ".[dev]"
 ```
 
@@ -156,8 +156,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development instructions.
 
 ```bash
 # Clone the repository
-git clone https://github.com/ilum-cloud/jupyter-bucket-explorer.git
-cd jupyter-bucket-explorer
+git clone https://github.com/ilum-cloud/jupyterlab-bucket-explorer.git
+cd jupyterlab-bucket-explorer
 
 # Create a virtual environment
 python -m venv .venv
@@ -341,7 +341,7 @@ Have ideas or want to prioritize a feature? We'd love to hear from you!
 
 <div align="center">
 
-**[Report Bug](https://github.com/ilum-cloud/jupyter-bucket-explorer/issues)** · **[Request Feature](https://github.com/ilum-cloud/jupyter-bucket-explorer/issues)**
+**[Report Bug](https://github.com/ilum-cloud/jupyterlab-bucket-explorer/issues)** · **[Request Feature](https://github.com/ilum-cloud/jupyterlab-bucket-explorer/issues)**
 
 </div>
 
